@@ -5,7 +5,7 @@ services:
     entrypoint: [bin/start]
     image: bigbluebutton/greenlight:v2
     container_name: greenlight-v2
-    env_file: .env
+    env_file: sample.env
     restart: unless-stopped
     ports:
       - 127.0.0.1:5000:80
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./log:/usr/src/app/log
 # When using sqlite3 as the database
-#      - ./db/production:/usr/src/app/db/production
+      - ./db/production:/usr/src/app/db/production
 # When using postgresql as the database
     links:
       - db
@@ -28,8 +28,8 @@ services:
     ports:
       - 127.0.0.1:5432:5432
     volumes:
-      - ./db/production:/var/lib/postgresql/data
+      - ./db/production-postgres:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=84661067f8874fbe
